@@ -4,8 +4,12 @@ services:
     image: vespersio/3proxy:latest
     container_name: 3proxy
     hostname: 3proxy
+    volumes:
+      - 3proxycfg:/etc/3proxy/cfg
     restart: always
     ports:
     - 3128:3128
     - 1080:1080
     - 8080:8080
+volumes:
+ 3proxycfg:
