@@ -1,0 +1,11 @@
+version: '3'
+services:
+  3proxy:
+    image: vespersio/3proxy:latest
+    container_name: 3proxy
+    hostname: 3proxy
+    restart: always
+    ports:
+    - 3128:3128
+    - 1080:1080
+    - 8080:8080
