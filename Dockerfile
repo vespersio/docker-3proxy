@@ -11,7 +11,8 @@ FROM alpine:latest
 ARG VERSION=0.8.12
 WORKDIR /etc/3proxy/
 COPY --from=builder /3proxy-${VERSION}/src/3proxy /etc/3proxy/
-RUN mkdir -p /etc/3proxy/cfg && \
+RUN apk --no-cache --no-progress upgrade && \
+    mkdir -p /etc/3proxy/cfg && \
     mkdir -p /etc/3proxy/cfg/traf && \
     chmod -R +x /etc/3proxy/3proxy
 COPY ./3proxy.cfg /etc/3proxy/cfg/3proxy.cfg
