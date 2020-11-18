@@ -6,11 +6,12 @@ RUN apk add --update libc-dev wget gcc make linux-headers && \
     tar -xf ${VERSION}.tar.gz && \
     cd 3proxy-${VERSION} && \
     make -f Makefile.Linux
+    make install -f Makefile.Linux
 
 FROM alpine:latest
 ARG VERSION=0.9.0
 WORKDIR /etc/3proxy/
-COPY --from=builder /3proxy-${VERSION}/src/3proxy /etc/3proxy/
+COPY --from=builder /bin/3proxy /etc/3proxy/
 RUN apk --no-cache --no-progress upgrade && \
     mkdir -p /etc/3proxy/cfg && \
     mkdir -p /etc/3proxy/cfg/traf && \
