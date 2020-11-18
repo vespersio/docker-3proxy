@@ -1,6 +1,6 @@
 FROM alpine:latest as builder
-ARG VERSION=0.9.0
-RUN apk add --update libc-dev wget gcc make && \
+ARG VERSION=0.9.1
+RUN apk add --update libc-dev wget gcc make linux-headers && \
     cd / && \
     wget -q  https://github.com/z3APA3A/3proxy/archive/${VERSION}.tar.gz && \
     tar -xf ${VERSION}.tar.gz && \
