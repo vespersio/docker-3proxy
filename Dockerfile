@@ -5,7 +5,7 @@ RUN apk add --update libc-dev wget gcc make linux-headers && \
     wget -q  https://github.com/z3APA3A/3proxy/archive/${VERSION}.tar.gz && \
     tar -xf ${VERSION}.tar.gz && \
     cd 3proxy-${VERSION} && \
-    make -f Makefile.Linux
+    make -f Makefile.Linux && \
     make install -f Makefile.Linux
 
 FROM alpine:latest
