@@ -1,5 +1,5 @@
 FROM alpine:latest as builder
-ARG VERSION=0.9.1
+ARG VERSION=0.9.2
 RUN apk add --update libc-dev wget gcc make linux-headers && \
     cd / && \
     wget -q  https://github.com/z3APA3A/3proxy/archive/${VERSION}.tar.gz && \
@@ -9,7 +9,6 @@ RUN apk add --update libc-dev wget gcc make linux-headers && \
     make install -f Makefile.Linux
 
 FROM alpine:latest
-ARG VERSION=0.9.0
 WORKDIR /etc/3proxy/
 COPY --from=builder /bin/3proxy /etc/3proxy/
 RUN apk --no-cache --no-progress upgrade && \
